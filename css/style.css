@@ -245,7 +245,7 @@ a:hover {
 	color-scheme:dark;
 }
 :root.theme-dark :focus-visible {
-	outline: 2px solid #4899F7;
+	outline: 2px solid #9b0000;
 	outline-offset: 2px;
   }
 :root.theme-dark body {
@@ -253,10 +253,10 @@ a:hover {
 	color:#ffffff;
 }
 :root.theme-dark a:not(.button) {
-	color:#4899F7;
+	color:#9b0000;
 }
 :root.theme-dark a:not(.button):hover {
-	color:#7AB8FF;
+	color:#fad7d7;
 }
 
 /* Auto theme */
@@ -269,11 +269,11 @@ a:hover {
 	color:#ffffff;
 }
 :root.theme-auto :focus-visible {
-    outline: 2px solid #4899F7;
+    outline: 2px solid #9b0000;
     outline-offset: 2px;
   }
 :root.theme-auto a:not(.button) {
-	color:#4899F7;
+	color:#9b0000;
 }
 :root.theme-auto a:not(.button):hover {
 	color:#7AB8FF;
@@ -374,3 +374,124 @@ ul li {
 	src:url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-800.eot?#iefix') format('embedded-opentype'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-800.woff2') format('woff2'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-800.woff') format('woff'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-800.ttf') format('truetype'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-800.svg#OpenSans') format('svg');
 }
 
+
+
+/*NEW STUFF*/
+
+
+/* Forzar eliminación de márgenes y paddings en el contenedor superior y elementos base */
+.custom-topbar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; /* Cambiado de 100vw a 100% para evitar desbordamiento por scrollbars */
+    z-index: 1000;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+/* Asegurar que no haya espacio superior en el navegador */
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.custom-topbar-menu {
+    width: 100%;
+    background: #0e0e0e;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; /* Alinear verticalmente el contenido */
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin: 0;
+    box-sizing: border-box; /* Asegurar que padding no cause desbordamiento */
+}
+
+.custom-menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 40px;
+    width: 40px;
+    z-index: 1001;
+}
+
+.custom-menu-icon {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    transition: transform 0.4s, opacity 0.4s;
+}
+
+.custom-menu-toggle.custom-open .custom-menu-icon:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.custom-menu-toggle.custom-open .custom-menu-icon:nth-child(2) {
+    opacity: 0;
+}
+
+.custom-menu-toggle.custom-open .custom-menu-icon:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.custom-menu-content {
+    display: none;
+    position: absolute;
+    top: 60px; /* Ajustado para que esté justo debajo de la barra */
+    right: 20px; /* Ajustado para que no se salga de la pantalla */
+    width: auto; /* Cambiado de 100% a auto para evitar desbordamiento */
+    max-width: 250px; /* Limitar el ancho máximo */
+    min-width: 200px; /* Asegurar un ancho mínimo */
+    background: #0e0e0e;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.custom-menu-content a {
+    display: block;
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    white-space: nowrap; /* Evitar que los enlaces se rompan en varias líneas */
+}
+
+.custom-menu-content a:hover {
+    color: #9b0000;
+}
+
+/* Media query para móviles */
+@media (max-width: 768px) {
+    .custom-menu-content {
+        right: 0; /* Ajustar a la derecha completamente en móviles */
+        width: calc(100% - 40px); /* Ajustar al ancho de la pantalla con un pequeño margen */
+        max-width: none; /* Eliminar restricción de ancho máximo */
+        min-width: 0; /* Eliminar ancho mínimo */
+        margin: 0 20px; /* Margen lateral para no pegar completamente a los bordes */
+    }
+
+    .custom-topbar-menu {
+        padding: 10px 15px;
+    }
+
+    .custom-menu-toggle {
+        height: 35px;
+        width: 35px;
+    }
+
+    .custom-menu-icon {
+        width: 20px;
+        height: 2px;
+    }
+}

@@ -17,8 +17,6 @@ const video = document.getElementById('videoAd');
   video.addEventListener('contextmenu', e => e.preventDefault());
   video.addEventListener('keydown', e => e.preventDefault());
 
-
-
 let foto_actual_visor = 0;
 let autoplay_activo_visor = true;
 let intervalo_visor;
@@ -94,3 +92,4 @@ function interpretar_swipe_visor() {
 // 🚀 Iniciar todo
 actualizar_foto_visor();
 iniciar_autoplay_visor();
+
