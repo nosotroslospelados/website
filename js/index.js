@@ -29,6 +29,7 @@ const fotos_visor = [
   "images/merch-2025/merch-05.jpg",
   "images/merch-2025/merch-06.jpg",
   "images/merch-2025/merch-07.jpg",
+  "images/merch-2025/merch-08.jpg",
   "images/merch-2025/merch-09.jpg",
   "images/merch-2025/merch-10.jpg",
   "images/merch-2025/merch-11.jpg",
