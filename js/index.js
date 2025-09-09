@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", function() {
+
 const video = document.getElementById('videoAd');
 
   const sources = [
@@ -18,9 +20,7 @@ const video = document.getElementById('videoAd');
   video.addEventListener('keydown', e => e.preventDefault());
 
 
-
-document.addEventListener("DOMContentLoaded", function() {
-
+  
 let foto_actual_visor = 0;
 let autoplay_activo_visor = true;
 let intervalo_visor;
